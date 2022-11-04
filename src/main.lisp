@@ -1,9 +1,9 @@
-;;(eval-when (:compile-toplevel :load-toplevel :execute)
-;;  (ql:quickload '(:with-user-abort) :silent t))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (ql:quickload '(:with-user-abort) :silent t))
 
-(defpackage backup
+(defpackage #:backup
   (:use :cl))
-(in-package :backup)
+(in-package #:backup)
 
 (defvar *program-name* "backup"
   "Program name.")
@@ -65,3 +65,7 @@
 
 (defun make-backup ()
   "")
+
+(defun toplevel ()
+  (sb-ext:disable-debugger)
+  (sb-ext:exit :code 0))
